@@ -50,13 +50,11 @@ El Agente A (Auditor) clasifica cada decisión en uno de tres estados:
 
 ### `auditor_llm.ipynb` — Google Colab
 
-El notebook está preparado para ejecutarse directamente en Colab. 
-Clona el repositorio automáticamente y solicita la API key de forma segura sin almacenarla.
+El notebook incluye un botón **Open in Colab** el cual permite abrir desde GitHub activandose automaticamente sin una confirguración adicional.
 
-El notebook incluye el botón **Open in Colab** — al abrirlo desde GitHub 
-se activa automáticamente sin configuración adicional.
+Al ejecutar la celda de importaciones, aparecera un campo para ingresar la `GEMINI_API_KEY` de fomra segura. La key no quedara almacenada en el notebook.
 
-Al ejecutar la primera celda de importaciones, aparecerá un campo para ingresar la `GEMINI_API_KEY`. Se obtiene gratuitamente en [Google AI Studio](https://aistudio.google.com/app/apikey).
+> Este notebook requiere una GEMINI_API_KEY con billing activo en Google AI Studio.
 
 ### `auditor.ipynb` y `optimizar_reglas.ipynb` — Local
 
@@ -71,12 +69,14 @@ pip install sentence-transformers scikit-learn numpy nltk ipywidgets
 # 3. Abrir el notebook
 jupyter notebook auditor.ipynb
 ```
+> Estos notebooks no requieren API key ni billing. Correran completamente local para ver la interacción entre el
+> `optimizar_reglas.ipynb` y las `reglas.json`
 
 ---
 
 ## Configuración — `reglas.json`
 
-El sistema opera con cero hardcode. Todos los controles, keywords y umbrales viven en `config/reglas.json` y pueden actualizarse sin tocar el código.
+El sistema opera con reglas identificadas y almacenadas. Todos los controles, keywords y umbrales viven en `config/reglas.json` y las keywords podrán actualizarse sin tocar el json a traves del notebook `optimizar_reglas.ipynb`.
 
 Los tres controles activos en la versión actual:
 
@@ -92,9 +92,8 @@ Los tres controles activos en la versión actual:
 
 ```
 ────────────────────────────────────────────────────────────
-Caso 1: APROBADO
+Caso [X]: APROBADO
 Índice de Fidelidad Analítica: 0.95 (CONFORME)
 Diagnóstico/Razón:
-  Agente B aprobó correctamente la cobertura de $900 USD dentro del límite de $1,200 USD.
-  No se activó ningún control fallido.
+  Agente B aprobó/rechazo/ignoro...
 ```
