@@ -3,7 +3,7 @@
 Reto de auditoría automática que evalúa las decisiones de un agente de atención al cliente (Agente B) en una aseguradora. El Agente Auditor (Agente A) verifica que cada respuesta respete los controles de negocio definidos, los límites financieros y las alertas críticas.
 
 ---
-
+&nbsp;
 ## Estructura
 
 El sistema tiene tres módulos independientes, cada uno con un propósito específico:
@@ -18,7 +18,7 @@ Este notebook usa `sentence-transformers` (`paraphrase-multilingual-MiniLM-L12-v
 Se construyo una herramienta interactiva con las librerias `ipywidgets` y `nltk`. Analiza los casos históricos, sugiere nuevas keywords para los controles y permite al usuario aceptar, editar o rechazar cada sugerencia antes de guardar los cambios en `reglas.json`. Diseñado para mantener el sistema actualizado a nivel de keywords.
 
 ---
-
+&nbsp;
 ## Estructura del repositorio
 
 ```
@@ -33,7 +33,7 @@ agente_auditor/
 ```
 
 ---
-
+&nbsp;
 ## Estados de auditoría
 
 El Agente A (Auditor) clasifica cada decisión en uno de tres estados:
@@ -45,7 +45,7 @@ El Agente A (Auditor) clasifica cada decisión en uno de tres estados:
 | BLOQUEADO | Agente B ignoró una alerta crítica — requiere intervención inmediata. |
 
 ---
-
+&nbsp;
 ## Ejecución
 
 ### `auditor_llm.ipynb` — Google Colab
@@ -56,6 +56,7 @@ Al ejecutar la celda de importaciones, aparecera un campo para ingresar la `GEMI
 
 > Este notebook requiere una GEMINI_API_KEY con billing activo en Google AI Studio.
 
+&nbsp;
 ### `auditor.ipynb` y `optimizar_reglas.ipynb` — Local
 
 ```bash
@@ -72,6 +73,7 @@ jupyter notebook auditor.ipynb
 > Estos notebooks no requieren API key ni billing. Correran completamente local para ver la interacción entre el
 > `optimizar_reglas.ipynb` y las `reglas.json`
 
+&nbsp;
 ---
 
 ## Configuración — `reglas.json`
@@ -87,7 +89,7 @@ Los tres controles activos en la versión actual:
 | `control_derivacion` | Detección de derivación | ALTA |
 
 ---
-
+&nbsp;
 ## Salida esperada
 
 ```
